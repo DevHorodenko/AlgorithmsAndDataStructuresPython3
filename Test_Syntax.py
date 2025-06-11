@@ -84,3 +84,59 @@ def isEven(num):
     return False
 
 print(isEven(10))
+
+for i in range(10):
+    print(i)
+
+list = [1,2,3]
+
+for i in list:
+    print(i)
+
+for i in range(len(list)):
+    print(list[i])
+    print(i)
+
+for i in range(1, 10, 2):
+    print(i)
+
+class Person:
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+        pass
+
+    def getName(self):
+        return self.name
+    
+    def getAge(self):
+        return self.age
+    
+    def setAge(self, age):
+        self.age = age
+    
+p = Person('Leo', 24)
+
+print('Name: %s' % p.getName())
+print('Age: %d' % p.getAge())
+
+p1 = Person('Jhon', 30)
+p2 = Person('Mary', 63)
+
+list = []
+list.append(p1)
+list.append(p2)
+
+for p in list:
+    print('Name: %s' % p.getName())
+    print('Age: %d' % p.getAge())
+
+print('Age before change: %d' % p1.getAge())
+
+p1.setAge(52)
+
+print('Age after change: %d' % p1.getAge())
+
+listEven = [num for num in range(101) if num % 2 == 0]
+print(listEven)
