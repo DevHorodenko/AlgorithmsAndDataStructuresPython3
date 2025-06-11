@@ -45,3 +45,42 @@ print(tuple)
 dic = {'Leo':24, 'Jhon':26, 'Mary':19} # Map
 
 print(dic)
+
+name = "Leonardo"
+
+print(len(name))
+
+list = [1,2,3]
+
+print(len(list))
+
+d = {"Leo":24 , "Jhon":26}
+
+for key in d:
+    print(d[key])
+
+num = 10
+
+if(num % 2 == 0):
+    print("Num is even")
+else:
+    print("Num is odd")
+
+num = 0
+
+while(num < 11):
+    print(num)
+    num = num + 1
+
+var = 'Leo'
+Var = 'Jhon'
+
+print(var)
+
+def isEven(num):
+    if(num % 2 == 0):
+        print("Num is even")
+        return True
+    return False
+
+print(isEven(10))
