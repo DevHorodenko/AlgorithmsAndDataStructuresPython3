@@ -1,3 +1,6 @@
+# Using collections.deque in Python
+# This script demonstrates basic operations with the deque class from the collections module, including adding, removing, and iterating over elements.
+
 from collections import deque
 
 d = deque()
