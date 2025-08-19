@@ -1,3 +1,6 @@
+# Functional Programming in Python
+# This module demonstrates the use of functions, lambdas, map, filter, and reduce for functional data manipulation.
+
 def power2(x):
     return x ** 2 # returning power raised to 2
 power2_ = lambda x: x**2

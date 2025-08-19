@@ -1,3 +1,6 @@
+# List Manipulation in Python
+# This script demonstrates various list operations such as concatenation, removal, searching, slicing, and sorting.
+
 """
 
 list = [1,2,3]

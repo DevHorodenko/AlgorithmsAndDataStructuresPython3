@@ -1,3 +1,6 @@
+# Inheritance Example in Python
+# This module demonstrates basic class inheritance, where the Car class inherits from the Transport class and adds its own attributes and methods.
+
 class Transport():
     
     def __init__(self, name, weight, price):

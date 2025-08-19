@@ -1,3 +1,6 @@
+# Unit Testing Example with unittest
+# This module demonstrates how to write and run unit tests for mathematical functions using Python's unittest framework.
+
 import unittest
 
 def fat(n):

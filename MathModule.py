@@ -1,3 +1,6 @@
+# Math Module Usage Examples
+# This script demonstrates the use of Python's math module for various mathematical operations.
+
 import math
 
 print(math.ceil(3.14)) # to see the bigger int, bigger or equal the number

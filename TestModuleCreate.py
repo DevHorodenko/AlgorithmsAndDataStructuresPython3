@@ -1,3 +1,6 @@
+# Testing Custom Module Functions
+# This script imports and tests functions from the CreatingModule module.
+
 import CreatingModule
 
 print(CreatingModule.fat(5))

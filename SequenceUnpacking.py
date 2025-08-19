@@ -1,3 +1,6 @@
+# Sequence Unpacking in Python
+# This script demonstrates unpacking lists, tuples, and function returns into variables.
+
 list = [1,2,3]
 a, b, c = list # unpack list
 

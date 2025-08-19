@@ -1,3 +1,6 @@
+# Simple Web Application with Bottle
+# This module demonstrates how to create a basic web application using the Bottle web framework.
+
 from bottle import Bottle, run
 
 app = Bottle()

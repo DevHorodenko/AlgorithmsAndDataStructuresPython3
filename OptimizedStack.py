@@ -1,3 +1,6 @@
+# Optimized Stack Implementation
+# This module provides an optimized stack class with methods for stack operations and size tracking.
+
 class OptimizedStack:
 
     def __init__(self):

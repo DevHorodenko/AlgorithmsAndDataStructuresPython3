@@ -1,3 +1,6 @@
+# Stack Data Structure Implementation
+# This module provides a basic stack implementation with methods to push, pop, and inspect elements.
+
 class Stack:
 
     def __init__(self):

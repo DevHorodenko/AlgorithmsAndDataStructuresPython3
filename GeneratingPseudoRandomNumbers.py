@@ -1,3 +1,6 @@
+# Generating Pseudo-Random Numbers in Python
+# This module demonstrates various ways to generate pseudo-random numbers and manipulate sequences using the random module.
+
 import random
 
 print(random.randrange(4)) # function randrange receives one value and it generate a value from its range

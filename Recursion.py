@@ -1,3 +1,6 @@
+# Recursion Examples in Python
+# This module demonstrates recursive functions for factorial, Fibonacci, and exponentiation.
+
 def factorial(n):
     if(n == 0):
         return 1

@@ -1,3 +1,6 @@
+# Basic Mathematical Functions
+# This module provides functions for calculating factorial, power, and area of a square.
+
 def fat(n):
     if(n==0):
         return 1

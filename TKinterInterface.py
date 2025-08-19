@@ -1,3 +1,6 @@
+# Simple Tkinter GUI Example
+# This module demonstrates how to create a basic graphical user interface using Tkinter, including input fields and buttons.
+
 from tkinter import *
 
 # Creating a new window

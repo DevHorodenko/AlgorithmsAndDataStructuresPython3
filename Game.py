@@ -1,3 +1,6 @@
+# Simple Click Game with Timer
+# This module implements a simple game where the player must click on a moving circle to score points. The circle changes position every second, and the score is updated based on successful or missed clicks.
+
 import simplegui, random
 from math import sqrt
 

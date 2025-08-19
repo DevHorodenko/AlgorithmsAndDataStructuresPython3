@@ -1,3 +1,6 @@
+# Threading Example in Python
+# This module demonstrates how to create and start multiple threads using the threading module.
+
 from threading import Thread
 import time
 

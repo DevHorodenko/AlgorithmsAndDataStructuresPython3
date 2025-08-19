@@ -1,3 +1,6 @@
+# Simple Test Function Example
+# This script defines and tests a basic factorial function using an assert statement.
+
 def fat(n):
     if(n==0):
         return 1

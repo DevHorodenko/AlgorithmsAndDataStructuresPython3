@@ -1,3 +1,6 @@
+# Queue Data Structure Implementation
+# This module provides a basic queue implementation with methods to enqueue, dequeue, and inspect elements.
+
 class Queue:
 
     def __init__(self):
@@ -20,4 +23,5 @@ class Queue:
 
     def front(self):
         if self.size() != 0:
-            return self.queue[0]   
+            return self.queue[0]
+        return None

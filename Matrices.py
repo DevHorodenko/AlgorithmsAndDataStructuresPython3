@@ -1,3 +1,6 @@
+# Matrix and Vector Examples in Python
+# This script demonstrates basic matrix and vector operations, including access and iteration.
+
 matrix = [
     [10, 20, 30, 40],
     [50, 60, 70, 80],

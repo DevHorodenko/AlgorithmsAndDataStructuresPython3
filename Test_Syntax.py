@@ -1,3 +1,6 @@
+# Python Syntax and Data Structures Examples
+# This script demonstrates basic Python syntax, data types, control structures, functions, and classes.
+
 print("Hello")
 
 # Unique comment
