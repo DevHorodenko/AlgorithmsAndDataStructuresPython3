@@ -75,78 +75,68 @@ class BinarySearchTree:
                 dadNode.setLeftChild(new_node)
             else:
                 dadNode.setRightChild(new_node)
+            self.size += 1
+            return
                 
     def pop(self, data):
         """Remove a node with the given data from the tree."""
         if self.isEmpty():
             raise ValueError("Tree is empty, cannot pop.")
-        """ Case 1: when the node doesnt have children """
-        """ Case 2: when the node has one child """
-        """ Case 3: when the node has two children """
         dadNode = None
         current = self.root
 
         while current is not None:
-            # Check if node to be deleted is found
             if data == current.getData():
-                # Case 1
-                if current.getLeftChild() == None and current.getRightChild() == None:
-                    # If the node is the root
+                # Case 1: No children
+                if current.getLeftChild() is None and current.getRightChild() is None:
                     if dadNode is None:
                         self.root = None
                     else:
-                        # Check if the node is a left or right child
                         if dadNode.getLeftChild() == current:
                             dadNode.setLeftChild(None)
                         elif dadNode.getRightChild() == current:
                             dadNode.setRightChild(None)
-                # Case 2
-                elif (current.getLeftChild() == None and current.getRightChild() != None) or (current.getRightChild() == None and current.getLeftChild() != None):
-                    # If the node is the root
+                    self.size -= 1
+                    break
+
+                # Case 2: One child
+                elif (current.getLeftChild() is None) != (current.getRightChild() is None):
+                    child = current.getLeftChild() if current.getLeftChild() else current.getRightChild()
                     if dadNode is None:
-                        if current.getLeftChild() is not None:
-                            self.root = current.getLeftChild()
-                        elif current.getRightChild() is not None:
-                            self.root = current.getRightChild()
-                        else:
-                            self.root = None
+                        self.root = child
                     else:
-                        # Check if the node is a left or right child
-                        if current.getLeftChild() is not None:
-                            if dadNode.getLeftChild() and dadNode.getLeftChild().getData() == current.getData():
-                                dadNode.setLeftChild(current.getLeftChild())
-                            else:
-                                dadNode.setRightChild(current.getLeftChild())
+                        if dadNode.getLeftChild() == current:
+                            dadNode.setLeftChild(child)
                         else:
-                            if dadNode.getLeftChild() and dadNode.getLeftChild().getData() == current.getData():
-                                dadNode.setLeftChild(current.getRightChild())
-                            else:
-                                dadNode.setRightChild(current.getRightChild())
-                # Case 3
-                elif current.getLeftChild() != None and current.getRightChild() != None:
+                            dadNode.setRightChild(child)
+                    self.size -= 1
+                    break
+
+                # Case 3: Two children
+                else:
                     # Find the inorder successor (smallest in the right subtree)
                     dadSmallerNode = current
                     smallerNode = current.getRightChild()
-                    nextSmallerNode = current.getRightChild().getLeftChild()
-                    while nextSmallerNode is not None:
+                    while smallerNode.getLeftChild() is not None:
                         dadSmallerNode = smallerNode
-                        smallerNode = nextSmallerNode
-                        nextSmallerNode = nextSmallerNode.getLeftChild()
-                    # Check if the node to be deleted is the root
-                    if dadNode is None:
-                        if self.root.getRightChild().getData() == smallerNode.getData():
-                            smallerNode.setLeftChild(self.root.getLeftChild())
-                        else:
-                            if dadSmallerNode.getLeftChild() and dadSmallerNode.getLeftChild().getData() == smallerNode.getData():
-                                dadSmallerNode.setLeftChild(None)
-                            else:
-                                dadSmallerNode.setRightChild(None)
-                            
-                            smallerNode.setLeftChild(current.getLeftChild())
-                            smallerNode.setRightChild(current.getRightChild())
-                        self.root = smallerNode
+                        smallerNode = smallerNode.getLeftChild()
+
+                    # Replace current's data with successor's data
+                    current.setData(smallerNode.getData())
+                    # Now remove the successor node
+                    if dadSmallerNode.getLeftChild() == smallerNode:
+                        dadSmallerNode.setLeftChild(smallerNode.getRightChild())
                     else:
-                        pass
+                        dadSmallerNode.setRightChild(smallerNode.getRightChild())
+                    self.size -= 1
+                    break
+
+            dadNode = current
+            if data < current.getData():
+                current = current.getLeftChild()
+            else:
+                current = current.getRightChild()
+        return
 
 tree = BinarySearchTree()
 tree.insert(8)
@@ -159,4 +149,8 @@ tree.insert(10)
 tree.insert(14)
 tree.insert(13)
 print(tree.showInPreOrder(tree.getRoot())) # Output: 8 3 1 6 4 7 10 14 13
-print("\nSize of the tree:", tree.getSize())
+print("\nSize of the tree:", tree.getSize()) # Output: Size of the tree: 9
+
+tree.pop(8)
+print(tree.showInPreOrder(tree.getRoot())) # Output: 10 3 1 6 4 7 14 13
+print("\nSize of the tree after pop:", tree.getSize()) # Output: Size of the tree after pop: 8
