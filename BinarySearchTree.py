@@ -1,5 +1,5 @@
 # Binary Search Tree Implementation in Python
-# This module provides a basic binary search tree (BST) with methods to insert nodes, check size and emptiness, and display elements in pre-order.
+# This module provides a basic binary search tree (BST) with methods to insert/remove nodes, check size and emptiness, and display elements in pre-order.
 
 class Node:
     
