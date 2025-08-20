@@ -50,7 +50,7 @@ class BinarySearchTree:
             print('%d' % current.getData(), end=' ')
             self.showInPreOrder(current.getLeftChild())
             self.showInPreOrder(current.getRightChild())
-            
+
     def insert(self, data):
         """Insert a new node with the given data into the tree."""
         new_node = Node(data)
@@ -76,6 +76,78 @@ class BinarySearchTree:
             else:
                 dadNode.setRightChild(new_node)
                 
+    def pop(self, data):
+        """Remove a node with the given data from the tree."""
+        if self.isEmpty():
+            raise ValueError("Tree is empty, cannot pop.")
+        """ Case 1: when the node doesnt have children """
+        """ Case 2: when the node has one child """
+        """ Case 3: when the node has two children """
+        dadNode = None
+        current = self.root
+
+        while current is not None:
+            # Check if node to be deleted is found
+            if data == current.getData():
+                # Case 1
+                if current.getLeftChild() == None and current.getRightChild() == None:
+                    # If the node is the root
+                    if dadNode is None:
+                        self.root = None
+                    else:
+                        # Check if the node is a left or right child
+                        if dadNode.getLeftChild() == current:
+                            dadNode.setLeftChild(None)
+                        elif dadNode.getRightChild() == current:
+                            dadNode.setRightChild(None)
+                # Case 2
+                elif (current.getLeftChild() == None and current.getRightChild() != None) or (current.getRightChild() == None and current.getLeftChild() != None):
+                    # If the node is the root
+                    if dadNode is None:
+                        if current.getLeftChild() is not None:
+                            self.root = current.getLeftChild()
+                        elif current.getRightChild() is not None:
+                            self.root = current.getRightChild()
+                        else:
+                            self.root = None
+                    else:
+                        # Check if the node is a left or right child
+                        if current.getLeftChild() is not None:
+                            if dadNode.getLeftChild() and dadNode.getLeftChild().getData() == current.getData():
+                                dadNode.setLeftChild(current.getLeftChild())
+                            else:
+                                dadNode.setRightChild(current.getLeftChild())
+                        else:
+                            if dadNode.getLeftChild() and dadNode.getLeftChild().getData() == current.getData():
+                                dadNode.setLeftChild(current.getRightChild())
+                            else:
+                                dadNode.setRightChild(current.getRightChild())
+                # Case 3
+                elif current.getLeftChild() != None and current.getRightChild() != None:
+                    # Find the inorder successor (smallest in the right subtree)
+                    dadSmallerNode = current
+                    smallerNode = current.getRightChild()
+                    nextSmallerNode = current.getRightChild().getLeftChild()
+                    while nextSmallerNode is not None:
+                        dadSmallerNode = smallerNode
+                        smallerNode = nextSmallerNode
+                        nextSmallerNode = nextSmallerNode.getLeftChild()
+                    # Check if the node to be deleted is the root
+                    if dadNode is None:
+                        if self.root.getRightChild().getData() == smallerNode.getData():
+                            smallerNode.setLeftChild(self.root.getLeftChild())
+                        else:
+                            if dadSmallerNode.getLeftChild() and dadSmallerNode.getLeftChild().getData() == smallerNode.getData():
+                                dadSmallerNode.setLeftChild(None)
+                            else:
+                                dadSmallerNode.setRightChild(None)
+                            
+                            smallerNode.setLeftChild(current.getLeftChild())
+                            smallerNode.setRightChild(current.getRightChild())
+                        self.root = smallerNode
+                    else:
+                        pass
+
 tree = BinarySearchTree()
 tree.insert(8)
 tree.insert(3)
