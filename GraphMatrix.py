@@ -9,8 +9,8 @@ class Graph:
 
 
     def add_edge(self, u, v):
-        # Graph is undirected
         """Add an edge to the graph."""
+        # Graph is undirected
         self.graph[u -1][v - 1] = 1
         self.graph[v -1][u - 1] = 1
 
